@@ -5,7 +5,7 @@
     <ul>
         <?php foreach ($posts as $post): ?>
         <li>
-            <a href="/show?id=<?php echo $post['id'] ?>">
+            <a href="/LinuxGitKurs/index.php/show?id=<?php echo $post['id'] ?>">
                 <?php echo $post['title'] ?>
             </a>
         </li>

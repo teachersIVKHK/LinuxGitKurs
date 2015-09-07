@@ -1,11 +1,12 @@
 <?php $title = $post['title'] ?>
 
 <?php ob_start() ?>
-    <h1><?php echo $post['title'] ?></h1>
+    <h2><?php echo $post['title'] ?></h2>
 
-    <div class="date"><?php echo $post['date'] ?></div>
+    <div class="date">Дата: <?php echo $post['date'] ?></div>
+    <div class="autor">Автор: <?php echo $post['autor'] ?>
     <div class="body">
-        <?php echo $post['text'] ?>
+        <?php echo $post['content'] ?>
     </div>
 <?php $content = ob_get_clean() ?>
 
