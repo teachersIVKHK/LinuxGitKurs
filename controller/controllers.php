@@ -1,5 +1,5 @@
 <?php
-// controllers.php
+// controller/controllers.php
 
 function list_action()
 {

@@ -1,5 +1,5 @@
 <?php
-// model.php
+// model/model.php
 
 function open_database_connection()
 {

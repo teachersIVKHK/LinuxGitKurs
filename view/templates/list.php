@@ -1,7 +1,7 @@
-<?php $title = 'List of Posts' ?>
+<?php $title = 'Список постов' ?>
 
 <?php ob_start() ?>
-    <h1>List of Posts</h1>
+    <h1>Список постов</h1>
     <ul>
         <?php foreach ($posts as $post): ?>
         <li>
