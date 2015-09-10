@@ -1,59 +1,58 @@
 <?php
 // model/model.php
+class Model {
+    
+private $this->link;
 
-function open_database_connection()
+public function __construct()
 {
     $link = mysql_connect('localhost', 'root', '12345');
     mysql_select_db('blogdb', $link);
     mysql_query('SET NAMES utf8');
 
-    return $link;
+    $this->link=$link;
 }
 
-function close_database_connection($link)
+private function close_database_connection($this->link)
 {
-    mysql_close($link);
+    mysql_close($this->link);
 }
 
-function get_all_posts()
+public function get_all_posts()
 {
-    $link = open_database_connection();
-
-    $result = mysql_query('SELECT id, title FROM post', $link);
+    
+    $result = mysql_query('SELECT id, title FROM post', $this->link);
     $posts = array();
     while ($row = mysql_fetch_assoc($result)) {
         $posts[] = $row;
     }
-    close_database_connection($link);
+    $this->close_database_connection($this->link);
 
     return $posts;
 }
-function get_post_by_id($id)
+public function get_post_by_id($id)
 {
-    $link = open_database_connection();
-
-    $result = mysql_query("SELECT `title`,`content`,`autor`,`date` FROM post WHERE `id`='$id'", $link);
+    $result = mysql_query("SELECT `title`,`content`,`autor`,`date` FROM post WHERE `id`='$id'", $this->link);
 
     $row = mysql_fetch_assoc($result);
         $post = $row;
 
-    close_database_connection($link);
+    this->close_database_connection($this->link);
 
     return $post;
 }
 
-function add_new_post()
+public function add_new_post()
 {
     $title=$_REQUEST['add_title'];
     $content=$_REQUEST['add_content'];
     $date=$_REQUEST['add_date'];
     $autor=$_REQUEST['add_autor'];
 
-    $link = open_database_connection();
+    $result = mysql_query("INSERT INTO `post`(`date`, `autor`, `title`, `content`) VALUES ('$date','$autor','$title','$content')", $this->link);
 
-    $result = mysql_query("INSERT INTO `post`(`date`, `autor`, `title`, `content`) VALUES ('$date','$autor','$title','$content')", $link);
-
-    close_database_connection($link);
+    this->close_database_connection($this->link);
 
     return $post;
+}
 }
