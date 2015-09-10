@@ -1,5 +1,6 @@
 <?php
 //route/routing.php
+
 $s = explode('?',$_SERVER['REQUEST_URI']);
 $uri=$s[0];
 //echo "uri=$uri";

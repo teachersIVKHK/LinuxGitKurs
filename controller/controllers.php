@@ -1,6 +1,6 @@
 <?php
-// controller/controllers.php
-
+// controller/Controllers.php
+class Controllers{
 function list_action()
 {
     $posts = get_all_posts();
@@ -21,4 +21,5 @@ function add_action()
 	add_new_post();
 	$posts = get_all_posts();
     require 'view/templates/list.php';
+}
 }
