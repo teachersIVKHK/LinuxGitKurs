@@ -1,15 +1,21 @@
 <?php $title = 'Список постов' ?>
 
 <?php ob_start() ?>
-    <h1>Список постов</h1>
+    <h2>Список постов</h2>
     <ul>
-        <?php foreach ($posts as $post): ?>
+        <?php 
+            $i=1;
+            foreach ($posts as $post): 
+        ?>
         <li>
-            <a href="/LinuxGitKurs/index.php/show?id=<?php echo $post['id'] ?>">
-                <?php echo $post['title'] ?>
+             <a href="show?id=<?php echo $post['id'] ?>">
+                <?php echo $i.'. '.$post['title'] ?>
             </a>
         </li>
-        <?php endforeach; ?>
+        <?php 
+            $i++;
+            endforeach; 
+        ?>
     </ul>
 <?php $content = ob_get_clean() ?>
 

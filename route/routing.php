@@ -1,22 +1,37 @@
 <?php
 //route/routing.php
-
+$controller=new Controllers();
+$router=new Router();
 $s = explode('?',$_SERVER['REQUEST_URI']);
-$uri=$s[0];
-//echo "uri=$uri";
-if ($uri == '/LinuxGitKurs/index.php' OR $uri == '/LinuxGitKurs/') {
-    list_action();
+$uri=trim($s[0],'/');
+// $uri=$_SERVER['REQUEST_URI'];
+// $arrURI=parse_url($uri);
+// $path=trim($arrURI['path'],'/');
+// $arrPath=explode('/',$path);
+// $controller=($arrPath[0]);
+// if(isset($arrPath[1])){
+// 	$action=$arrPath[1].'_action()';
+// }
+// if(isset($arrPath[2])){
 
-} elseif ($uri == '/LinuxGitKurs/index.php/show' && isset($_GET['id'])) {
-    show_action($_GET['id']);
+// }
+echo "<br>uri=$uri";
+if ($uri == '') {
+    $controller->list_action();
 
-} elseif($uri=='/LinuxGitKurs/index.php/admin'){
-	admin_action();
+} elseif ($uri == 'show' && isset($_GET['id'])) {
+    $controller->show_action($_GET['id']);
 
-} elseif($uri=='/LinuxGitKurs/index.php/add' && isset($_REQUEST['submit'])){
-	add_action();
+} elseif($uri == 'admin'){
+	$controller->admin_action();
+
+} elseif($uri=='add' && isset($_REQUEST['submit'])){
+	$controller->add_action();
 	
-} else {
+} elseif($uri=='delete'){
+	$controller->delete_action();
+	
+}else {
 
     header('Status: 404 Not Found');
     echo '<html><body><h1>Page Not Found</h1></body></html>';

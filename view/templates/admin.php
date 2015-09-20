@@ -1,8 +1,8 @@
 <?php $title = "Администрирование" ?>
 
 <?php ob_start() ?>
-<h2>Администрирование странички</h2>
-<form action="/LinuxGitKurs/index.php/add" method="POST" name="form1">
+<h3>Добавить запись</h3>
+<form action="add" method="POST" name="form1">
 <table>
 	<tr>
 		<td>Автор: </td>
@@ -26,6 +26,25 @@
 	</tr>
 </table>
 </form>
+<h3>Удалить запись</h3>
+    <ul>
+        <?php 
+            $i=1;
+            foreach ($posts as $post): 
+        ?>
+        <li>
+        	<a id='del_post' href="delete?id=<?php echo $post['id'] ?>">
+				<?php echo ' x ' ?>
+        	</a>
+        	<a id='row_post' href="show?id=<?php echo $post['id'] ?>">
+                <?php echo $i.'. '.$post['title'] ?>
+            </a>
+        </li>
+        <?php 
+            $i++;
+            endforeach; 
+        ?>
+    </ul>
 <?php $content = ob_get_clean() ?>
 
 <?php include 'view/templates/layout.php' ?>
