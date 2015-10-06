@@ -1,0 +1,1 @@
+SQLSTATE[HY000] [2019] Unknown character setSQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'blogdb'SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'blogdb'
